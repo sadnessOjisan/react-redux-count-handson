@@ -8,11 +8,16 @@ const actionTypes = {
 };
 
 // action cretor
-const countUp = () => {
+
+type TCountUpAction = { type: COUNT_UP };
+type TCountDownAction = { type: COUNT_DOWN };
+type TAction = TCountUpAction | TCountDownAction;
+
+const countUp = (): TCountUpAction => {
   return { type: COUNT_UP };
 };
 
-const countDown = () => {
+const countDown = (): TCountDownAction => {
   return { type: COUNT_DOWN };
 };
 
@@ -21,13 +26,17 @@ export const actionCreators = {
   countDown
 };
 
+// state
+export type TState = {
+  count: number
+};
+
 const initialState = {
   count: 0
 };
 
-const reducer = (state = initialState, action) => {
-  console.log("reducer state", state);
-  console.log("reducer action", action);
+// reducer
+const reducer = (state: TState = initialState, action: TAction) => {
   switch (action.type) {
     case COUNT_UP:
       return { ...state, count: state.count + 1 };

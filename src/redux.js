@@ -1,9 +1,9 @@
 import { createStore } from "redux";
 import reducer from "./countModule";
+import { type TState as TCountState } from "./countModule";
 
-const configureStore = initialState => {
-  const store = createStore(reducer, initialState);
-  return store;
-};
+export type TStore = TCountState;
 
-export default configureStore;
+const store = createStore(reducer);
+
+export default store;

@@ -17,3 +17,6 @@ $ node index.js
 ```
 
 ## 解説
+
+`bindActionCreators(actionCreators.countUp, dispatch)` は何をやっているのか
+->
