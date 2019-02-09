@@ -1,3 +1,5 @@
+// @flow
+
 // action type
 const COUNT_UP = "COUNT_UP";
 const COUNT_DOWN = "COUNT_DOWN";
@@ -9,8 +11,8 @@ const actionTypes = {
 
 // action cretor
 
-type TCountUpAction = { type: COUNT_UP };
-type TCountDownAction = { type: COUNT_DOWN };
+type TCountUpAction = { type: typeof COUNT_UP };
+type TCountDownAction = { type: typeof COUNT_DOWN };
 type TAction = TCountUpAction | TCountDownAction;
 
 const countUp = (): TCountUpAction => {
@@ -18,7 +20,7 @@ const countUp = (): TCountUpAction => {
 };
 
 const countDown = (): TCountDownAction => {
-  return { type: COUNT_DOWN };
+  return { type: COUNT_DOWN, payload: 2 };
 };
 
 export const actionCreators = {
@@ -43,7 +45,7 @@ const reducer = (state: TState = initialState, action: TAction) => {
     case COUNT_DOWN:
       return { ...state, count: state.count - 1 };
     default:
-      return initialState; // これがないとundefinedが変えるよ https://qiita.com/kiita312/items/7fdce94912d6d9c801f8
+      return initialState; // これがないとundefinedがreturnされるよ https://qiita.com/kiita312/items/7fdce94912d6d9c801f8
   }
 };
 
