@@ -1,12 +1,10 @@
-
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
-const env = process.env.BUILD_MODE;
+const env = process.env.REACT_APP_ENV;
 
 module.exports = {
   mode: env || "development",
-  entry: "./src/main.jsx",
+  entry: "./src/index.jsx",
   output: {
     path: path.resolve(__dirname, "./dist"),
     filename: "build.js"
@@ -25,15 +23,5 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".json", ".jsx"]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "index.html"
-    })
-  ],
-  devServer: {
-    contentBase: path.resolve(__dirname, "dist"),
-    historyApiFallback: true
   }
 };
