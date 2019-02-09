@@ -1,16 +1,17 @@
 {
   "name": "react-redux-count-handson",
   "version": "1.0.0",
-  "description": "## 概要",
+  "description": "@babel/preset-react",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack",
+    "start": "webpack --watch"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sadnessOjisan/react-redux-count-handson.git"
   },
-  "author": "",
+  "author": "sadnessOjisan",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sadnessOjisan/react-redux-count-handson/issues"
