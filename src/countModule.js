@@ -15,17 +15,12 @@ type TCountUpAction = { type: typeof COUNT_UP };
 type TCountDownAction = { type: typeof COUNT_DOWN };
 type TAction = TCountUpAction | TCountDownAction;
 
-const countUp = (): TCountUpAction => {
+export const countUp = (): TCountUpAction => {
   return { type: COUNT_UP };
 };
 
-const countDown = (): TCountDownAction => {
+export const countDown = (): TCountDownAction => {
   return { type: COUNT_DOWN, payload: 2 };
-};
-
-export const actionCreators = {
-  countUp,
-  countDown
 };
 
 // state
