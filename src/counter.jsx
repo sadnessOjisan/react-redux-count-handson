@@ -3,7 +3,7 @@
 import * as React from "react";
 import { bindActionCreators, type Dispatch } from "redux";
 import { connect } from "react-redux";
-import { countUp, countDown } from "./countModule";
+import { countUp, countDown, reset } from "./countModule";
 import { type TStore } from "./redux";
 
 type TMapStateToProps = {|
@@ -12,7 +12,8 @@ type TMapStateToProps = {|
 
 type TMapDispatchToProps = {|
   countUp: typeof countUp,
-  countDown: typeof countDown
+  countDown: typeof countDown,
+  reset: typeof reset
 |};
 
 type Props = {
@@ -22,12 +23,13 @@ type Props = {
 
 class Counter extends React.Component<Props> {
   render() {
-    const { count, countUp, countDown } = this.props;
+    const { count, countUp, countDown, reset } = this.props;
     return (
       <center>
         <h1>count</h1>
         <button onClick={countUp}>up</button>
         <button onClick={countDown}>down</button>
+        <button onClick={reset}>reset</button>
         <p>{count}</p>
       </center>
     );
@@ -41,7 +43,8 @@ const mapStateToProps = (state: TStore) => {
 const mapDispatchToProps = (dispatch: Dispatch<*>) => {
   return {
     countUp: () => dispatch(countUp()),
-    countDown: () => dispatch(countDown())
+    countDown: () => dispatch(countDown()),
+    reset: () => dispatch(reset())
   };
 };
 
