@@ -1,0 +1,20 @@
+{
+  "source": "./src",
+  "destination": "./.esdoc",
+  "excludes": ["node_modules", ".esdoc"],
+  "plugins": [
+    {
+      "name": "esdoc-standard-plugin",
+      "option": {
+        "undocumentIdentifier": {
+          "enable": true
+        },
+        "unexportIdentifier": {
+          "enable": true
+        }
+      }
+    },
+    { "name": "esdoc-ecmascript-proposal-plugin", "option": { "all": true } },
+    { "name": "esdoc-react-plugin" }
+  ]
+}
