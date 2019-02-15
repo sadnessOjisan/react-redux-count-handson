@@ -1,11 +1,9 @@
 # redux-count-handson
 
-url: https://compassionate-mayer-566641.netlify.com/
-
-| Contents | URL                                      |
-| -------- | ---------------------------------------- |
-| app      | https://modest-morse-14bb3d.netlify.com/ |
-| esdoc    | reverent-jackson-1f2106.netlify.com      |
+| Contents | URL                                             |
+| -------- | ----------------------------------------------- |
+| app      | https://compassionate-mayer-566641.netlify.com/ |
+| esdoc    | https://reverent-jackson-1f2106.netlify.com     |
 
 ## 概要
 
