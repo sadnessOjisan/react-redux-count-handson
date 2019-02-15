@@ -13,16 +13,30 @@ react-redux でカウントアップ、カウンドダウンを行う。なお r
 
 [redux-count-handson](https://github.com/sadnessOjisan/redux-count-handson)の続編です
 
-## 起動
+## 使い方
+
+起動
 
 ```
 $ npm install
 
-$ yarn run start
+$ npm run build
+
+$ open ./dist/index.html
 
 ```
 
-その後、 `http://localhost:3000` にアクセス。
+もしくは、
+
+```
+$ npm run start
+```
+
+ローカルでドキュメントを読みたい
+
+```
+$ npm run docgen
+```
 
 ## なぜ Flow がサンプルコードに入っているか
 
