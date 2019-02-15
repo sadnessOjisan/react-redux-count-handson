@@ -3,8 +3,7 @@ import reducer from "./countModule";
 
 /**
  * reduxのstoreです。`createStore()`にreducerを渡すことで生成できます。
- * store.dispatch(action)でactionをdispatchできます。
- * しかし、ここではaction creatorからdispatchするのでこの方式は撮りません。
+ * ここで作られたstoreが`provider`へと渡されます。
  * @type {Store}
  */
 const store = createStore(reducer);

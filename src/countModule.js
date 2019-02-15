@@ -1,38 +1,20 @@
-// action type
-
 /**
- * count up用のaction識別子(type)
+ * count up用のaction type(actionの識別子)
  */
 const COUNT_UP = "COUNT_UP";
 
 /**
- * count down用のaction識別子(type)
+ * count down用のaction type(actionの識別子)
  */
 const COUNT_DOWN = "COUNT_DOWN";
 
 /**
- * reset用のaction識別子(type)
+ * reset用のaction type(actionの識別子)
  */
 const RESET = "RESET";
 
-// action cretor
-
 /**
- * reduxのstore. アプリ全体のstateを管理する. このアプリケーションではcountをstateとして持つ.
- * @typedef {Object} Store
- * @property {Number} count countの数値
- */
-
-/**
- * reduxのaction.
- * @typedef {Object} Action
- * @property {String} type actionの識別子
- * @property {mixed?} payload actionのデータ
- * @example const exampleAction = {type: 'HOGE', payload: 'sample_data'}
- */
-
-/**
- * action creator
+ * COUNT_UP アクションを生成するための、action creator
  * @return {Action} COUNT_UP 用のaction
  */
 const countUp = () => {
@@ -40,7 +22,7 @@ const countUp = () => {
 };
 
 /**
- * action creator
+ * COUNT_DOWN アクションを生成するための、action creator
  * @return {Action} COUNT_DOWN 用のaction
  */
 const countDown = () => {
@@ -48,29 +30,27 @@ const countDown = () => {
 };
 
 /**
- * action creator
+ * RESET アクションを生成するための、action creator
  * @return {Action} RESET 用のaction
  */
 const reset = () => {
   return { type: RESET };
 };
 
-// state
-
 /**
- * countのstateです。
- * reducerから更新されます。
+ * count stateの初期stateです。
+ * このアプリはこのstateのみをstoreに持つので、stateの型はStoreです。
  * @type {Store}
  */
 const initialState = {
   count: 0
 };
 
-// reducer
-
 /**
  * reducerはstateを変更する役割を持ちます。古いstateとactionを元に、新しいstateを返します。
  * stateの破壊的変更は禁止されているので、新しいstateオブジェクトを作り直して返しています。
+ * default時にinitialStateを返さないと、store生成時にundefinedがreturnされる。
+ * 参考: [Redux入門 3日目 Reduxの基本・Reducers(公式ドキュメント和訳)](https://qiita.com/kiita312/items/7fdce94912d6d9c801f8)
  * @param {Store} state 更新前のstate
  * @param {Action} action 更新内容を伝えるメッセージ
  * @return {Store} 新しいstate
@@ -84,7 +64,7 @@ const reducer = (state = initialState, action) => {
     case RESET:
       return initialState;
     default:
-      return initialState; // これがないとundefinedがreturnされるよ https://qiita.com/kiita312/items/7fdce94912d6d9c801f8
+      return initialState;
   }
 };
 
