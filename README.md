@@ -1,4 +1,4 @@
-# redux-count-handson
+# react-redux-count-handson
 
 | Contents | URL                                             |
 | -------- | ----------------------------------------------- |
@@ -23,11 +23,6 @@ $ yarn run start
 ```
 
 その後、 `http://localhost:3000` にアクセス。
-
-## 解説
-
-`bindActionCreators(actionCreators.countUp, dispatch)` は何をやっているのか
-->
 
 ## なぜ Flow がサンプルコードに入っているか
 

@@ -1,27 +1,19 @@
-// @flow
-
 import * as React from "react";
-import { bindActionCreators, type Dispatch } from "redux";
+import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { countUp, countDown, reset } from "./countModule";
-import { type TStore } from "./redux";
 
-type TMapStateToProps = {|
-  count: number
-|};
-
-type TMapDispatchToProps = {|
-  countUp: typeof countUp,
-  countDown: typeof countDown,
-  reset: typeof reset
-|};
-
-type Props = {
-  ...TMapStateToProps,
-  ...TMapDispatchToProps
-};
-
-class Counter extends React.Component<Props> {
+/**
+ * This is MyClass.
+ * @reactProps {!number} count - storeが管理しているcountのstate
+ * @reactProps {void=>void} countUp - countUp actionのdispatcher
+ * @reactProps {void=>void} countDown - countDown actionのdispatcher
+ * @reactProps {void=>void} reset - reset actionのdispatcher
+ */
+class Counter extends React.Component {
+  /**
+   * propsが更新されるたびに呼び出されるレンダリング関数
+   */
   render() {
     const { count, countUp, countDown, reset } = this.props;
     return (
@@ -36,11 +28,18 @@ class Counter extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state: TStore) => {
+/**
+ * counterのstateとcounterコンポーネントを紐づける役割を持つ
+ * @param {Store} state Counterコンポーネントに伝えたいstateを宣言する
+ */
+const mapStateToProps = state => {
   return { count: state.count };
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<*>) => {
+/**
+ * counterのstoreにアクションをdispatchする役割を持つ
+ */
+const mapDispatchToProps = dispatch => {
   return {
     countUp: () => dispatch(countUp()),
     countDown: () => dispatch(countDown()),
@@ -48,7 +47,12 @@ const mapDispatchToProps = (dispatch: Dispatch<*>) => {
   };
 };
 
+/**
+ * storeとcomponentを紐づける
+ */
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Counter);
+
+export { Counter, mapStateToProps, mapDispatchToProps };

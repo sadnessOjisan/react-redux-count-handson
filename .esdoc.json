@@ -1,7 +1,8 @@
 {
-  "source": "./src",
+  "source": "./src/",
   "destination": "./.esdoc",
   "excludes": ["node_modules", ".esdoc"],
+  "includes": [".*\\.js", ".*\\.jsx"],
   "plugins": [
     {
       "name": "esdoc-standard-plugin",
@@ -15,6 +16,7 @@
       }
     },
     { "name": "esdoc-ecmascript-proposal-plugin", "option": { "all": true } },
-    { "name": "esdoc-react-plugin" }
+    { "name": "esdoc-react-plugin" },
+    { "name": "esdoc-jsx-plugin", "option": { "enable": true } }
   ]
 }

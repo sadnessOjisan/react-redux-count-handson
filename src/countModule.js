@@ -1,8 +1,18 @@
-// @flow
-
 // action type
+
+/**
+ * count up用のaction識別子(type)
+ */
 const COUNT_UP = "COUNT_UP";
+
+/**
+ * count down用のaction識別子(type)
+ */
 const COUNT_DOWN = "COUNT_DOWN";
+
+/**
+ * reset用のaction識別子(type)
+ */
 const RESET = "RESET";
 
 // action cretor
@@ -21,28 +31,37 @@ const RESET = "RESET";
  * @example const exampleAction = {type: 'HOGE', payload: 'sample_data'}
  */
 
-type TCountUpAction = { type: typeof COUNT_UP };
-type TCountDownAction = { type: typeof COUNT_DOWN };
-type TResetAction = { type: typeof RESET };
-type TAction = TCountUpAction | TCountDownAction | TResetAction;
-
-export const countUp = (): TCountUpAction => {
+/**
+ * action creator
+ * @return {Action} COUNT_UP 用のaction
+ */
+const countUp = () => {
   return { type: COUNT_UP };
 };
 
-export const countDown = (): TCountDownAction => {
+/**
+ * action creator
+ * @return {Action} COUNT_DOWN 用のaction
+ */
+const countDown = () => {
   return { type: COUNT_DOWN };
 };
 
-export const reset = (): TResetAction => {
+/**
+ * action creator
+ * @return {Action} RESET 用のaction
+ */
+const reset = () => {
   return { type: RESET };
 };
 
 // state
-export type TState = {
-  count: number
-};
 
+/**
+ * countのstateです。
+ * reducerから更新されます。
+ * @type {Store}
+ */
 const initialState = {
   count: 0
 };
@@ -50,11 +69,13 @@ const initialState = {
 // reducer
 
 /**
- *
- * @param {*} state
- * @param {*} action
+ * reducerはstateを変更する役割を持ちます。古いstateとactionを元に、新しいstateを返します。
+ * stateの破壊的変更は禁止されているので、新しいstateオブジェクトを作り直して返しています。
+ * @param {Store} state 更新前のstate
+ * @param {Action} action 更新内容を伝えるメッセージ
+ * @return {Store} 新しいstate
  */
-const reducer = (state: TState = initialState, action: TAction) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case COUNT_UP:
       return { ...state, count: state.count + 1 };
@@ -67,4 +88,6 @@ const reducer = (state: TState = initialState, action: TAction) => {
   }
 };
 
+// esdocで仕様書を生成するためにexport. アプリを動かすためならば、この処理は不要(reducerのexportは必要)
+export { COUNT_UP, COUNT_DOWN, RESET, countUp, countDown, reset, initialState };
 export default reducer;
