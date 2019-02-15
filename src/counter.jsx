@@ -36,6 +36,7 @@ class Counter extends React.Component {
 /**
  * counterのstateとcounterコンポーネントを紐づける役割を持つ
  * @param {Store} state Counterコンポーネントに伝えたいstateを宣言する
+ * @returns {TMapStateToProps} どのpropsにアクセスするかの設定を描いたファイル
  */
 const mapStateToProps = state => {
   return { count: state.count };
@@ -43,6 +44,8 @@ const mapStateToProps = state => {
 
 /**
  * counterのstoreにアクションをdispatchする役割を持つ
+ * @param {Dispatch} dispatch dispatcher
+ * @returns {TMapDispatchToProps} dispathcerを持つオブジェクト
  */
 const mapDispatchToProps = dispatch => {
   return {
