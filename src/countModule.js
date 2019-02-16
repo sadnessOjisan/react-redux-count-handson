@@ -1,15 +1,15 @@
 /**
- * count up用のaction type(actionの識別子)
+ * count up 用のaction識別子(type)
  */
 const COUNT_UP = "COUNT_UP";
 
 /**
- * count down用のaction type(actionの識別子)
+ * count down 用のaction識別子(type)
  */
 const COUNT_DOWN = "COUNT_DOWN";
 
 /**
- * reset用のaction type(actionの識別子)
+ * reset 用のaction識別子(type)
  */
 const RESET = "RESET";
 
@@ -41,8 +41,8 @@ const reset = () => {
 };
 
 /**
- * count stateの初期stateです。
- * このアプリはこのstateのみをstoreに持つので、stateの型はStoreです。
+ * count modlue の初期stateです。
+ * このアプリはこのstateのみをstoreに持つので、stateの型はTStoreです。
  * @type {TStore}
  */
 const initialState = {
