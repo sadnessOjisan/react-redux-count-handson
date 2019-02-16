@@ -38,13 +38,13 @@
  */
 
 /**
- * mapStateToProps の返り値の型
+ * mapStateToProps の返り値の型です。
  * @typedef {Object} TMapStateToProps
  * @property {number} count カウント数値
  */
 
 /**
- * mapDipatchToProps の返り値の型
+ * mapDipatchToProps の返り値の型です。
  * @typedef {Object} TMapDispatchToProps
  * @property {void=>void} countUp - countUp actionのdispatcher
  * @property {void=>void} countDown - countDown actionのdispatcher
