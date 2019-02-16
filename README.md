@@ -1,12 +1,12 @@
 # react-redux-count-handson
 
-| Contents                    | URL                                                                       | 備考　                                                   |
-| --------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------- |
-| 最新のコード                | https://github.com/sadnessOjisan/react-redux-count-handson                | -                                                        |
-| Flow で型がつけられたコード | https://github.com/sadnessOjisan/react-redux-count-handson/tree/v1.1.0    | commit hash は`0a219278edbc7af0591b0b44b6161245bb186ea1` |
-| app                         | https://compassionate-mayer-566641.netlify.com/                           | -                                                        |
-| esdoc                       | https://reverent-jackson-1f2106.netlify.com                               | -                                                        |
-| nocomment                   | https://github.com/sadnessOjisan/react-redux-count-handson/tree/nocomment | -                                                        |
+| Contents                    | URL                                                                       | 備考　                                                                             |
+| --------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| 最新のコード                | https://github.com/sadnessOjisan/react-redux-count-handson                | -                                                                                  |
+| Flow で型がつけられたコード | https://github.com/sadnessOjisan/react-redux-count-handson/tree/v1.1.0    | commit hash は`0a219278edbc7af0591b0b44b6161245bb186ea1`です。                     |
+| app                         | https://compassionate-mayer-566641.netlify.com/                           | master が更新されるたびに [netlify](https://app.netlify.com/) にデプロイされます。 |
+| esdoc                       | https://reverent-jackson-1f2106.netlify.com                               | master が更新されるたびに [netlify](https://app.netlify.com/) にデプロイされます。 |
+| nocomment                   | https://github.com/sadnessOjisan/react-redux-count-handson/tree/nocomment | コメントが一切ないです。                                                           |
 
 ## 概要
 
@@ -41,10 +41,10 @@ $ npm run docgen
 
 ## なぜ Flow がサンプルコードに入っているか
 
-react-redux では様々な関数が登場したり、redux に読ませるための関数を自作する場面が多く出て来ます。
-どのように呼ばれ、何が渡され、何が返されるのかということを読めれば、コードを追いかけられるはずなので、型を入れました。TS じゃないのは、学習コストを考慮してのことです。
+[react-redux](https://react-redux.js.org/) では様々な関数が登場したり、[redux](https://redux.js.org/) に読ませるための関数を自作する場面が多く出て来ます。
+どのように呼ばれ、何が渡され、何が返されるのかということを読めれば、コードを追いかけられるはずなので、型を入れました。[TypeScript](https://www.typescriptlang.org/) じゃないのは、学習コストを考慮してのことです。
 
-Flow の型を読みたい場合は、
+[Flow](https://flow.org/en/) の型を読みたい場合は、
 
 ```
 $ git reset --hard 0a219278edbc7af0591b0b44b6161245bb186ea1
