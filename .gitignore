@@ -2,4 +2,3 @@ node_modules
 !.gitkeep
 !index.html
 dist
-.esdoc
