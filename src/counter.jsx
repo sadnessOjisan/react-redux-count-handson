@@ -34,8 +34,9 @@ class Counter extends React.Component {
 }
 
 /**
- * counterのstateとcounterコンポーネントを紐づける役割を持つ
- * @param {Store} state Counterコンポーネントに伝えたいstateを宣言する
+ * mapStateToProps の役割は、storeのどのプロパティをコンポーネントで使うかを設定することです。
+ * ここでは、counter の state と count コンポーネントを紐づける役割を持たせるように定義しました。
+ * @param {TStore} state Counterコンポーネントに伝えたいstateを宣言する
  * @returns {TMapStateToProps} どのpropsにアクセスするかの設定を描いたファイル
  */
 const mapStateToProps = state => {
@@ -43,9 +44,10 @@ const mapStateToProps = state => {
 };
 
 /**
- * counterのstoreにアクションをdispatchする役割を持つ
- * @param {Dispatch} dispatch dispatcher
- * @returns {TMapDispatchToProps} dispathcerを持つオブジェクト
+ * mapDispatchToProps の役割は、どのアクションをコンポーネントからdispatchできるようにするかを設定することです。
+ * ここでは、counter の store にアクションをdispatchする役割を持ちます。
+ * @param {Dispatch} dispatch 実行することで、actionをdispatchするメソッド。詳しい仕様は [dispatch(action)](https://redux.js.org/api/store#dispatch)
+ * @returns {TMapDispatchToProps} dispathを呼び出せる関数を持つオブジェクト
  */
 const mapDispatchToProps = dispatch => {
   return {

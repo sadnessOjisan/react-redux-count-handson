@@ -14,24 +14,27 @@ const COUNT_DOWN = "COUNT_DOWN";
 const RESET = "RESET";
 
 /**
- * COUNT_UP アクションを生成するための、action creator
- * @return {Action} COUNT_UP 用のaction
+ * COUNT_UP アクションを生成するための、[action creator](https://redux.js.org/basics/actions#action-creators)です。
+ * @return {TCountUp} COUNT_UP 用のaction
+ * @example {type: 'COUNT_UP'}
  */
 const countUp = () => {
   return { type: COUNT_UP };
 };
 
 /**
- * COUNT_DOWN アクションを生成するための、action creator
- * @return {Action} COUNT_DOWN 用のaction
+ * COUNT_DOWN アクションを生成するための、[action creator](https://redux.js.org/basics/actions#action-creators)です。
+ * @return {TCountDown} COUNT_DOWN 用のaction
+ * @example {type: 'COUNT_DOWN'}
  */
 const countDown = () => {
   return { type: COUNT_DOWN };
 };
 
 /**
- * RESET アクションを生成するための、action creator
- * @return {Action} RESET 用のaction
+ * RESET アクションを生成するための、[action creator](https://redux.js.org/basics/actions#action-creators)です。
+ * @return {TReset} RESET 用のaction
+ * @example {type: 'RESET'}
  */
 const reset = () => {
   return { type: RESET };
@@ -40,7 +43,7 @@ const reset = () => {
 /**
  * count stateの初期stateです。
  * このアプリはこのstateのみをstoreに持つので、stateの型はStoreです。
- * @type {Store}
+ * @type {TStore}
  */
 const initialState = {
   count: 0
@@ -49,11 +52,21 @@ const initialState = {
 /**
  * reducerはstateを変更する役割を持ちます。古いstateとactionを元に、新しいstateを返します。
  * stateの破壊的変更は禁止されているので、新しいstateオブジェクトを作り直して返しています。
- * default時にinitialStateを返さないと、store生成時にundefinedがreturnされる。
+ * スプレッド演算子を使うと、新しいオブジェクトを簡単に作れるので、採用しています。
+ *
+ * (例)
+ * ```
+ * const sample = {a: 1, b: 2, c: 3}
+ * const updateSample = {...sample, c:4}
+ * // updateSample -> {a: 1, b: 2, c:4}
+ * // これは、spread演算子の特性上、{a: 1, b: 2, c: 3, c:4}となるがオブジェクトの同一キーは上書きされるためである。
+ * ```
+ *
+ * またdefaultのcase節ではinitialStateを返さないと、store生成時にundefinedがreturnされるため注意が必要です。
  * 参考: [Redux入門 3日目 Reduxの基本・Reducers(公式ドキュメント和訳)](https://qiita.com/kiita312/items/7fdce94912d6d9c801f8)
- * @param {Store} state 更新前のstate
- * @param {Action} action 更新内容を伝えるメッセージ
- * @return {Store} 新しいstate
+ * @param {TStore} state 更新前のstate
+ * @param {TAction} action 更新内容を伝えるメッセージ
+ * @return {TStore} 新しいstate
  */
 const reducer = (state = initialState, action) => {
   switch (action.type) {
